@@ -9,7 +9,7 @@ msg() {
 
 case "$1" in
 	purge)
-		rm -f /etc/udev/rules.d/50-usb-realtek-net.rules
+		rm -f /etc/udev/rules.d/50-wput5.rules
 
 		msg "Reload udev..."
 		[ -x "$(command -v udevadm)" ] \

@@ -34,7 +34,7 @@ dkms_configure () {
 
 udev_configure() {
 	msg "Installing udev rules to prevent from loading built-in old driver..."
-	cp -f /tmp/realtek-r8152-dkms/rules.d/50-usb-realtek-net.rules /etc/udev/rules.d/
+	cp -f /tmp/realtek-r8152-dkms/rules.d/50-wput5.rules /etc/udev/rules.d/
 
 	msg "Reload udev..."
 	[ -x "$(command -v udevadm)" ] \
