@@ -20,11 +20,11 @@ RTL8153 /B/C/D/E | USB 3.0     | 10/100/1000 MbE
 RTL8154 /B       | USB 2.0     | 10/100/1000 MbE
 RTL8152B         | USB 2.0     | 10/100M
 
-## Installation
+## Installation Scripts
 
-There are 2 ways (autorun.sh or dkms-install.sh)to install this DKMS module. Choose one as your tastes. 
+There are 2 scripts (autorun.sh or dkms-install.sh) to install the driver module. `autorun.sh` installs the module for the  current kernel, while `dkms-install.sh` installs the module as a dkms, which will automatically build and install the module when a new kernel is installed.
 
-### clone code 
+### clone code
 
 ```
 git clone https://github.com/wisdpi/wp-ut5_dkms.git
@@ -58,15 +58,19 @@ sudo ./dkms-install.sh
 
 ## Debian package build
 
-You can build yourself this after installing some dependencies including `dkms`.
+This method is similar to the dkms-install.sh, but is a package instead. First install the needed dependancies:
 
 ```bash
 sudo apt install devscripts debmake debhelper build-essential dkms dh-dkms
 ```
 
+Then build the package:
+
 ```bash
 dpkg-buildpackage -b -rfakeroot -us -uc
 ```
+
+The `realtek-r8152-dkms_*.deb` will be located in the folder above where the command was run.
 
 ## LICENSE
 
