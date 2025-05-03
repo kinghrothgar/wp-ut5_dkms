@@ -24,8 +24,6 @@ else
 	PWD :=$(shell pwd)
 	TARGET_PATH := kernel/drivers/net/usb
 	INBOXDRIVER := $(shell find $(subst build,$(TARGET_PATH),$(KERNELDIR)) -name r8152.ko.* -type f)
-	RULEFILE = 50-wput5.rules
-	RULEDIR = /etc/udev/rules.d/
 
 .PHONY: modules
 modules:
@@ -51,10 +49,6 @@ ifneq ($(INBOXDRIVER),)
 endif
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) INSTALL_MOD_DIR=$(TARGET_PATH) modules_install
 	modprobe r8152
-
-.PHONY: install_rules
-install_rules:
-	install --group=root --owner=root --mode=0644 $(RULEFILE) $(RULEDIR)
 
 endif
 

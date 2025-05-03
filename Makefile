@@ -22,6 +22,3 @@ clean:
 
 install: modules
 	$(MAKE) -C src/ install
-
-install_rules:
-	$(MAKE) -C src/ install_rules
